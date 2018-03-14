@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: blue;
+        }
+
+        .cl {
+            text-align: center;
+            margin: 100px 400px;
+        }
+
+        #fid1 {
+            width: 100%;
+            background-color: brown;
+            padding: 50px 0px;
+        }
+
+        #n1 {
+            width: 250px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #s1 {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0 0 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+    </style>
+   
+</head>
+<body>
+    <script>
+        function Validate(){
+            var name = document.form1.name;
+            var email = document.form1.email;
+            var phone = document.form1.number;
+            var passwd = document.form1.password;
+
+
+            if (name.value == "") {
+                window.alert("Please enter your name.");
+                name.focus();
+                return false;
+            }
+
+
+
+            re = /^\w+$/;
+            if(!re.test(name.value)) {
+                alert("Error: Username must contain only letters, numbers and underscores!");
+                name.focus();
+                return false;
+            }
+
+           
+            var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+           // elment.style.color = "white";
+
+            if (!pattern.test(email.value)) {
+                window.alert("Please enter a valid e-mail address.");
+                email.focus();
+                return false;
+            }
+            
+            if (phone.value == "") {
+                window.alert("Please enter mobile no.");
+                phone.focus();
+                return false;
+            }
+
+            if (passwd.value == "") {
+                window.alert("Please enter a valid password.");
+                passwd.focus();
+                return false;
+            }
+
+            
+                if(passwd.value.length < 6) {
+                    alert("Error: Password must contain at least six characters!");
+                    passwd.focus();
+                    return false;
+                }
+
+
+
+            re = /[0-9]/;
+            if (!re.test(passwd.value)) {
+                alert("Error: password must contain at least one number (0-9)!");
+                passwd.focus();
+                return false;
+            }
+            re = /[a-z]/;
+            if (!re.test(passwd.value)) {
+                alert("Error: password must contain at least one lowercase letter (a-z)!");
+                passwd.focus();
+                return false;
+            }
+           
+
+
+        }
+    </script>
+
+    <div class="cl">
+
+
+        <form id="fid1"  name="form1"  action = "regi.html"   onsubmit="return Validate()" >
+            <h1 style="color:burlywood">login detail</h1>
+            <input type="text" name="name" id="n1" placeholder="enter yuor name"  /><br />
+            <br />
+            <input type="number" name="number" id="n1" placeholder="enter your mobile no" /><br />
+            <br />
+            <input type="email" name="email" id="n1" placeholder="enter your email" /><br />
+            <br />
+            <input type="password" name="password" id="n1" placeholder="enter your password" /><br />
+            <br />
+            <input type="submit" value="login" id="s1" />
+        </form>
+    </div>
+
+    
+
+</body>
+</html>
