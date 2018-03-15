@@ -1,0 +1,46 @@
+﻿<html>
+
+<head>
+    <script type="text/javascript" src="JavaScript1.js"> </script>
+
+</head>
+    <body>
+       
+        <script type="text/javascript">
+            detail();
+            // function overriding
+            function detail() {
+
+                emp.prototype.getfullname = function () {
+
+                    return this.firstname.toUpperCase() + " " + this.lastname.toUpperCase();
+
+
+                }
+
+                var e1 = new emp("ayush" , "kumar");
+                document.write(e1.getfullname() +"<br>");
+                
+                otherdetail.prototype = e1; // employee e1 object acting as base class for otherdetail
+                var ob = new otherdetail(21, 101);
+                document.write("details after inheriting firstname and lastname of employee" + "<br>");
+                document.write(ob.firstname +"<br>");
+                document.write(ob.lastname +"<br>");
+                document.write(ob.id + "<br>");
+                document.write(ob.age + "<br>");
+
+                var ob = new Shape();
+            }
+
+
+        </script>
+        
+       
+ </body>
+    
+</html>
+
+
+
+   
+
