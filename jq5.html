@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="http://localhost:55600/Scripts/jquery-3.3.1.min.js" >  </script>
+   
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+   <style>
+       body{
+           background-color:burlywood;
+       }
+
+       .c1{
+           background-color:aquamarine;
+           text-align:center;
+            margin-left:400px;
+            margin-right:400px;
+           margin-bottom:600px;
+       }
+   </style>
+
+</head>
+<body>
+ <div class="c1">
+    <form  id="myform">
+        <center>
+        <table>
+            <tr> <td> name:</td><td><input type="text" name="field1" /> </td></tr>
+
+            <tr><td> email:</td><td><input type="text" name="field2" /></td></tr>
+            <tr>
+                <td>
+               
+                    phone:</td><td><input type="text" name="field3" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    password:
+                </td>
+                <td>
+                    <input type="password" name="field4" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+            </center>
+   </form>
+    </div>
+    
+
+
+        <script type="text/javascript">
+              $(document).ready(function () {
+
+                  $("#myform").validate({ // initialize the plugin
+                   rules: {
+                    field1: {
+                        required: true,
+
+                           },
+                    field2: {
+                        required: true,
+                        email: true,
+                        pattern: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]
+
+                    },
+
+
+                    field3: {
+                        required: true,
+                        minlength: 10,
+                        pattern: [/^[7-9]{1}[0-9]{9}$/],
+                    },
+                    
+                    field4: {
+                        required: true,
+                        minlength: 10,
+                        pattern: [/^[7-9]{1}[0-9]{9}$/],
+                    },
+                
+                    
+
+                    
+
+                    submitHandler: function (form) { // for demo
+                        alert('valid form submitted'); // for demo
+                        return false; // for demo
+                    }
+                }
+        });
+
+    });
+    </script>
+</body>
+</html>
